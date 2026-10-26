@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jy1BwUtdvBJUloKXzAb117JxgOY/ohQzOSt3g7SzE2A=' https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://jrdoaebexqarnwzltkgw.supabase.co; font-src 'self' data:; connect-src 'self' https://jrdoaebexqarnwzltkgw.supabase.co wss://jrdoaebexqarnwzltkgw.supabase.co; frame-src https://script.google.com https://*.googleusercontent.com; media-src 'self' blob:; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<style id="frameGuard">html{display:none!important}</style>
+<script>(function(){if(window.self===window.top){var g=document.getElementById("frameGuard");if(g)g.parentNode.removeChild(g);}else{try{window.top.location.replace(window.self.location.href);}catch(e){}}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>설악케이블카 ERP · 관리자</title>
+<link rel="icon" type="image/png" href="assets/brand/favicon-32.png">
+<link rel="manifest" href="manifest.json?v=20261023f">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#14365d">
+<meta name="apple-mobile-web-app-title" content="설악 ERP">
+<meta name="application-name" content="설악 ERP">
+<link rel="stylesheet" href="tokens.css?v=20261023f">
+<link rel="stylesheet" href="beta.css?v=20261023f">
+<link rel="stylesheet" href="style.css?v=20261023f">
+<link rel="stylesheet" href="ui.css?v=20261023f">
+<link rel="stylesheet" href="shell.css?v=20261023f">
+<link rel="stylesheet" href="hr-core.css?v=20261023f">
+<link rel="stylesheet" href="hr-people.css?v=20261023f">
+<link rel="stylesheet" href="pages.css?v=20261023f">
+<link rel="stylesheet" href="feedback.css?v=20261023f">
+<link rel="stylesheet" href="notify.css?v=20261023f">
+</head>
+<body>
+<div class="ops-banner" id="opsBanner" data-ops="banner" hidden></div>
+<header class="top adm-top">
+<a class="btn btn-sm" href="index.html">← ERP로</a>
+<h1><span class="b-logo" data-logo-wide="paper" data-logo-size="sm"></span><span class="adm-tag"><i aria-hidden="true">›</i> 관리자 설정</span></h1>
+<button class="b-fb" id="topFb" type="button" hidden aria-label="의견 보내기" title="불편한 점·오류·바라는 기능을 알려 주세요"><svg class="ic sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v11H9l-4.5 3.5v-3.5H4z"/><path d="M8 9.5h8M8 12.5h5"/></svg><span>의견 보내기</span></button>
+<a class="b-help" id="topHelp" href="index.html#/s/hr-help" hidden aria-label="도우미 — 자주 묻는 질문·내 연차·근무 바로 보기" title="도우미"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v11H10l-4.5 3.5v-3.5H4z"/><path d="M10 9.2a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.4"/><path d="M12 14.2v.1"/></svg></a>
+<div class="user-chip"><div class="avatar" id="avatar"></div><div class="user-meta"><b id="userName"></b><span>관리자</span></div></div>
+<button class="btn btn-sm" id="logoutBtn" type="button">로그아웃</button>
+<span class="beta-slot" data-beta-slot></span>
+</header>
+<main class="content adm-main">
+<div class="ph"><div class="ph-t"><h1>관리자 설정</h1><p class="desc">직원 계정·권한·회사 정보를 관리해요. 바꾼 내용은 「변경 기록」에 남아요.</p></div></div>
+<div class="tabs" role="tablist">
+<button type="button" role="tab" class="tab on" data-tab="users" aria-selected="true">직원</button>
+<button type="button" role="tab" class="tab" data-tab="pwreq" aria-selected="false">비밀번호 요청<span class="n" id="pwBadge" title="발급을 기다리는 요청" hidden></span></button>
+<button type="button" role="tab" class="tab" data-tab="perms" aria-selected="false">권한</button>
+<button type="button" role="tab" class="tab" data-tab="company" aria-selected="false">회사·메뉴</button>
+<button type="button" role="tab" class="tab" data-tab="ops" aria-selected="false">운행 공지</button>
+<button type="button" role="tab" class="tab" data-tab="gw" aria-selected="false">그룹웨어</button>
+<button type="button" role="tab" class="tab" data-tab="signup" aria-selected="false">가입·조직</button>
+<button type="button" role="tab" class="tab" data-tab="feedback" aria-selected="false">실무자 피드백<span class="n" id="fbBadge" title="새 피드백" hidden></span></button>
+<button type="button" role="tab" class="tab" data-tab="audit" aria-selected="false">변경 기록</button>
+</div>
+<section id="pane"></section>
+</main>
+<script src="config.js?v=20261023f"></script>
+<script src="config.beta.js?v=20261023f"></script>
+<script src="beta.js?v=20261023f"></script>
+<script src="vendor/supabase.js"></script>
+<script src="storage.js?v=20261023f"></script>
+<script src="common.js?v=20261023f"></script>
+<script src="hr-core.js?v=20261023f"></script>
+<script src="hr-onboard.js?v=20261023f"></script>
+<script src="notify.js?v=20261023f"></script>
+<script src="feedback.js?v=20261023f"></script>
+<script src="admin.js?v=20261023f"></script>
+<script src="weather.js?v=20261023f"></script>
+</body>
+</html>

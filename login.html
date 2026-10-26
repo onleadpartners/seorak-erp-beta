@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jy1BwUtdvBJUloKXzAb117JxgOY/ohQzOSt3g7SzE2A=' https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://jrdoaebexqarnwzltkgw.supabase.co; font-src 'self' data:; connect-src 'self' https://jrdoaebexqarnwzltkgw.supabase.co wss://jrdoaebexqarnwzltkgw.supabase.co; frame-src https://script.google.com https://*.googleusercontent.com; media-src 'self' blob:; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<style id="frameGuard">html{display:none!important}</style>
+<script>(function(){if(window.self===window.top){var g=document.getElementById("frameGuard");if(g)g.parentNode.removeChild(g);}else{try{window.top.location.replace(window.self.location.href);}catch(e){}}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>설악케이블카 ERP · 로그인</title>
+<link rel="icon" type="image/png" href="assets/brand/favicon-32.png">
+<link rel="manifest" href="manifest.json?v=20261023f">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#14365d">
+<meta name="apple-mobile-web-app-title" content="설악 ERP">
+<meta name="application-name" content="설악 ERP">
+<link rel="stylesheet" href="tokens.css?v=20261023f">
+<link rel="stylesheet" href="beta.css?v=20261023f">
+<link rel="stylesheet" href="style.css?v=20261023f">
+<link rel="stylesheet" href="login.css?v=20261023f">
+</head>
+<body class="lg-body">
+<div class="ops-banner" id="opsBanner" data-ops="banner" hidden></div>
+<div class="lg-split">
+<aside class="lg-vis" id="lgVis" aria-label="회사 소개와 현재 날씨">
+<div class="lg-tint" aria-hidden="true"></div>
+<svg class="lg-scene" id="lgScene" aria-hidden="true" focusable="false"></svg>
+<canvas class="lg-pfx" id="lgPfx" aria-hidden="true"></canvas>
+<div class="lg-head lg-rise"><span class="brand-line" data-logo-wide="band"></span></div>
+<p class="lg-slogan lg-rise lg-d1" data-slogan></p>
+<p class="lg-tag lg-rise lg-d2" data-tagline></p>
+<div class="lg-wx lg-rise lg-d3" id="lgWx" data-wx="sky" role="group" aria-label="현재 날씨" hidden></div>
+</aside>
+<main class="lg-right">
+<div class="lg-card lg-rise lg-d2">
+<h1 class="sr" data-product></h1>
+<div class="lg-hd" id="lgHd">
+<h2 class="lg-title" id="lgTitle">로그인</h2>
+<p class="lg-sub" id="lgSub">아이디와 비밀번호로 들어와 주세요.</p>
+</div>
+<p class="wx-alert" id="wxAlert" role="status" hidden></p>
+<div class="lgt-card" id="lgtCard" data-lgt="card" hidden></div>
+<p class="warn-box" id="topMsg" role="alert" hidden></p>
+<div class="tabs auth-tabs" role="tablist" id="authTabs">
+<button type="button" role="tab" class="tab on" data-auth="login" aria-selected="true">로그인</button>
+<button type="button" role="tab" class="tab" data-auth="signup" aria-selected="false" id="signupTab" hidden>회원가입</button>
+<button type="button" role="tab" class="tab" data-auth="find" aria-selected="false">비밀번호 찾기</button>
+</div>
+<form id="loginForm" data-panel="login" novalidate>
+<div class="field"><label for="lLogin">아이디</label><input class="input" id="lLogin" maxlength="20" autocomplete="username" autocapitalize="off" spellcheck="false"></div>
+<div class="field"><label for="lPw">비밀번호</label><input class="input" id="lPw" type="password" autocomplete="current-password"></div>
+<p class="err" id="loginErr"></p>
+<button class="btn btn-primary" type="submit" id="loginBtn">로그인 <span class="arr" aria-hidden="true">→</span></button>
+</form>
+<form id="signupForm" data-panel="signup" hidden novalidate>
+<p class="help" style="margin:0 0 12px">가입 신청 후 <b>관리자가 승인</b>하면 로그인하실 수 있어요. 이메일은 사용하지 않아요.</p>
+<div id="signupClosed" class="warn-box" hidden>지금은 가입 신청을 받지 않고 있어요. 관리자에게 문의해 주세요.</div>
+<div id="signupFields">
+<div class="field"><label class="req" for="gName">이름</label><input class="input" id="gName" maxlength="40" autocomplete="name"></div>
+<div class="field"><label class="req" for="gLogin">로그인 아이디</label><input class="input" id="gLogin" maxlength="20" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="한글·영문·숫자 2~20자" aria-describedby="gLoginHint"><span class="help" id="gLoginHint">한글·영문·숫자 2~20자 (예: 이솔, hong.gd)</span></div>
+<div class="field"><label class="req" for="gPhone">휴대폰 번호</label><input class="input" id="gPhone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="010-1234-5678" aria-describedby="gPhoneHint"><span class="help" id="gPhoneHint">관리자가 연락드릴 때 사용해요. 관리자와 본인만 볼 수 있어요.</span></div>
+<div class="field"><label class="req" for="gPw">비밀번호 (8자 이상, 영문+숫자)</label><input class="input" id="gPw" type="password" autocomplete="new-password"></div>
+<div class="field"><label class="req" for="gPw2">비밀번호 확인</label><input class="input" id="gPw2" type="password" autocomplete="new-password"></div>
+<div class="field"><label for="gDept">부서 (선택)</label><span id="gDeptBox"><input class="input" id="gDept" maxlength="40"></span></div>
+<p class="err" id="signupErr"></p>
+<button class="btn btn-primary" type="submit">가입 신청</button>
+</div>
+</form>
+<div id="findBox" data-panel="find" hidden>
+<form id="reqForm" novalidate>
+<p class="help" style="margin:0 0 12px">아이디와 이름을 넣고 요청해 주세요. 관리자가 임시 비밀번호를 만들어 <b>직접 알려 드려요.</b> 그 비밀번호로 로그인하면 바로 새 비밀번호를 정하시게 돼요.</p>
+<div class="field"><label for="fLogin">아이디</label><input class="input" id="fLogin" maxlength="20" autocomplete="username" autocapitalize="off" spellcheck="false"></div>
+<div class="field"><label for="fName">이름</label><input class="input" id="fName" maxlength="40" autocomplete="name"></div>
+<p class="err" id="reqErr"></p>
+<button class="btn btn-primary" type="submit">임시 비밀번호 요청</button>
+<div id="reqOut" role="status" hidden></div>
+</form>
+</div>
+<form id="newPwForm" data-panel="newpw" hidden novalidate>
+<h2 style="font-size:17px;margin-bottom:6px" id="newPwTitle">새 비밀번호 설정</h2>
+<p class="help" style="margin:0 0 14px" id="newPwHelp">새로 쓸 비밀번호를 정해 주세요.</p>
+<div class="field"><label class="req" for="nPw">새 비밀번호 (8자 이상, 영문+숫자)</label><input class="input" id="nPw" type="password" autocomplete="new-password"></div>
+<div class="field"><label class="req" for="nPw2">새 비밀번호 확인</label><input class="input" id="nPw2" type="password" autocomplete="new-password"></div>
+<p class="err" id="newPwErr"></p>
+<button class="btn btn-primary" type="submit">비밀번호 저장</button>
+<button class="btn" type="button" data-logout>로그아웃</button>
+</form>
+<div id="statusBox" data-panel="status" hidden>
+<h2 style="font-size:17px;margin-bottom:8px" id="statusTitle"></h2>
+<p id="statusText" style="margin:0 0 14px"></p>
+<button class="btn" type="button" id="statusBack">다른 계정으로 로그인</button>
+</div>
+<div class="lg-mwx" id="lgMwx" role="group" aria-label="현재 날씨" hidden></div>
+</div>
+</main>
+</div>
+<script src="config.js?v=20261023f"></script>
+<script src="config.beta.js?v=20261023f"></script>
+<script src="beta.js?v=20261023f"></script>
+<script src="vendor/supabase.js"></script>
+<script src="storage.js?v=20261023f"></script>
+<script src="common.js?v=20261023f"></script>
+<script src="weather.js?v=20261023f"></script>
+<script src="lightning.js?v=20261023f"></script>
+<script src="sky-time.js?v=20261023f"></script>
+<script src="sky-fx.js?v=20261023f"></script>
+<script src="login-sky.js?v=20261023f"></script>
+<script src="login-page.js?v=20261023f"></script>
+</body>
+</html>
